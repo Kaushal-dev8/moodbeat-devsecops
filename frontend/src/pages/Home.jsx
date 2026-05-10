@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar"
-import MoodCard from "../components/MoodCard"
+import MoodCard from "../components/Moodcard"
 
 function Home() {
     const moods = [
