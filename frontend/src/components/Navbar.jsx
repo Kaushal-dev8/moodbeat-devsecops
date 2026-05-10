@@ -10,7 +10,19 @@ function Navbar() {
                 </h1>
             </Link>
 
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
+
+                <Link to="/dashboard">
+                    <button className="px-5 py-2 rounded-lg border border-gray-700 hover:bg-gray-800 transition">
+                        Dashboard
+                    </button>
+                </Link>
+
+                <Link to="/favorites">
+                    <button className="px-5 py-2 rounded-lg border border-pink-500 hover:bg-pink-500/20 transition">
+                        Favorites
+                    </button>
+                </Link>
 
                 <Link to="/login">
                     <button className="px-5 py-2 rounded-lg border border-gray-700 hover:bg-gray-800 transition">
