@@ -36,6 +36,10 @@ function Playlist() {
                     Curated tracks for late night vibes.
                 </p>
 
+                <button className="mt-8 px-8 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl font-bold transition duration-300">
+                    ❤️ Save Playlist
+                </button>
+
             </section>
 
             <section className="max-w-6xl mx-auto px-8 pb-20">
