@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
 
 function MoodCard({ title, emoji, description }) {
+
+    const moodPath = title.toLowerCase()
+
     return (
-        <Link to="/playlist">
+        <Link to={`/playlist/${moodPath}`}>
 
             <div className="bg-zinc-900 hover:bg-zinc-800 transition rounded-3xl p-8 cursor-pointer border border-zinc-800 hover:border-green-400 hover:scale-105 duration-300 shadow-lg">
 

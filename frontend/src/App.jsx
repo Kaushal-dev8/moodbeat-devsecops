@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/playlist" element={<Playlist />} />
+          <Route path="/playlist/:mood" element={<Playlist />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </div>
