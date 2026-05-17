@@ -1,8 +1,4 @@
-from jose import jwt
 from passlib.context import CryptContext
-
-SECRET_KEY = "mysecretkey"
-ALGORITHM = "HS256"
 
 pwd_context = CryptContext(
     schemes=["bcrypt"],
@@ -16,20 +12,11 @@ def hash_password(password: str):
 
 
 def verify_password(
-    plain_password: str,
-    hashed_password: str
+    plain_password,
+    hashed_password
 ):
 
     return pwd_context.verify(
         plain_password,
         hashed_password
-    )
-
-
-def create_access_token(data: dict):
-
-    return jwt.encode(
-        data,
-        SECRET_KEY,
-        algorithm=ALGORITHM
     )

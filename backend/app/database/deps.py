@@ -1,12 +1,30 @@
-from app.database.database import SessionLocal
+from fastapi import Depends, HTTPException, status
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from jose import jwt, JWTError
+
+SECRET_KEY = "mysecretkey"
+ALGORITHM = "HS256"
+
+security = HTTPBearer()
 
 
-def get_db():
+def get_current_user(
+    credentials: HTTPAuthorizationCredentials = Depends(security)
+):
 
-    db = SessionLocal()
+    token = credentials.credentials
 
     try:
-        yield db
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
 
-    finally:
-        db.close()
+        return payload
+
+    except JWTError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid token"
+        )
