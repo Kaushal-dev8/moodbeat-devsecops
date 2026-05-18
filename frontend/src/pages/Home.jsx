@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar"
-import MoodCard from "../components/Moodcard"
+import MoodCard from "../components/MoodCard";
 import { Link } from "react-router-dom"
 
 function Home() {

@@ -1,0 +1,25 @@
+services:
+  backend:
+    build: ./backend
+    container_name: moodbeat-api
+    expose:
+      - "8000"
+
+  frontend:
+    build: ./frontend
+    container_name: moodbeat-ui
+    expose:
+      - "5173"
+    depends_on:
+      - backend
+
+  nginx:
+    image: nginx:latest
+    container_name: moodbeat-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
